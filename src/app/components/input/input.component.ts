@@ -1,4 +1,5 @@
-import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef, Output, EventEmitter } from '@angular/core';
+import { typeWithParameters } from '@angular/compiler/src/render3/util';
 
 @Component({
   selector: 'app-input',
@@ -7,13 +8,14 @@ import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 })
 export class InputComponent implements OnInit {
   @ViewChild('inputElement', {static: true}) inputElement: ElementRef;
-
+  @Output() birthYear:EventEmitter<number> = new EventEmitter<number>();
   constructor() { }
 
   ngOnInit() {
   }
   onSubmitBirthYear(){
-    console.log(this.inputElement.nativeElement.value);
+    const value = this.inputElement.nativeElement.value;
+    this.birthYear.emit(value);
   }
 
 
