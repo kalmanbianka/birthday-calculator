@@ -1,10 +1,11 @@
 .app-component{
+    padding: 10px;
     background: #333a3b;
     width: 400px;
     height: 150px;
     .title{
         color: wheat;
-        margin: 10px;
         display: inline-block;
+        margin: 0 0 10px 0;
     }
 }
